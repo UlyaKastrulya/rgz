@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Финансовые показатели</title>
+  
 </head>
 <body>
     <header>
@@ -19,11 +20,73 @@
     </header>
 
     <main>
+        <h1>Финансовые показатели</h1>
+        <table id="pricetable">
+            <tr>
+              <th>Дата</th>
+              <th>Цена закрытия</th>
+            </tr>
+          </table>
+        <div id="minprice"></div>
+        <div id="maxprice"></div>
+        <div id="S"></div>
 
+        <div class="trading">
+            <div style="font-size: 16px;">Общее число акций на апрель 2023</div>
+            <div class="tradingVolume">17 869 440  <span style="color:#3e3e3e; font-weight: normal; margin-left: 2px;">шт</span></div>
+        </div>
     </main>
 
     <footer> 
         <img src="photos/footerlogogrey" alt="logo" width="34px" height="60px" class="logofooter">
     </footer>
+    <script>
+        let day = ['03.04.2023', '04.04.2023', '05.04.2023', '06.04.2023', '07.04.2023', '10.04.2023', '11.04.2023','12.04.2023',
+        '13.04.2023','14.04.2023','17.04.2023','18.04.2023','19.04.2023', '20.04.2023','21.04.2023','24.04.2023','25.04.2023',
+        '26.04.2023','27.04.2023','28.04.2023'];
+        let value = [203.5, 207.5, 204, 265, 243, 243.5, 243.5, 243, 240, 240, 239, 242, 240, 239.5, 240.5, 243.5, 259.5, 269, 270, 278];
+    
+        function tableFilling() {
+          let table = document.getElementById('pricetable');
+    
+          for (i = 0; i < day.length; i++) {
+            let row = document.createElement('tr');
+            let dayCell = document.createElement('td');
+            dayCell.innerHTML = day[i];
+            table.appendChild(row);
+            row.appendChild(dayCell);
+    
+            let valueCell = document.createElement('td');
+            valueCell.innerHTML = value[i];
+            row.appendChild(valueCell);
+          }
+        }
+    
+        function Caluculating() {
+          let minDiv = document.getElementById('minprice');
+          let maxDiv = document.getElementById('maxprice');
+          let sDiv = document.getElementById('S');
+          minDiv.innerHTML = (`Минимальная цена: ${Math.min(...value)}`);
+          maxDiv.innerHTML = (`Максимальная цена: ${Math.max(...value)}`);
+    
+          let summ = 0;
+          for (let i = 0; i < value.length; i++) {
+            summ = summ + value[i];
+          }
+          let E = summ / value.length;
+    
+          let xiE2 = 0;
+          for (let i = 0; i < value.length; i++) {
+            xiE2 = xiE2 + (value[i] - E) ** 2;
+          }
+    
+          let S = Math.round((Math.sqrt((xiE2) / value.length)) * 1000) / 1000;
+    
+          sDiv.innerHTML = (`Среднеквадратическое отклонение: ${S}`);
+        } 
+    
+        tableFilling();
+        Caluculating();
+      </script>
 </body>
 </html>
