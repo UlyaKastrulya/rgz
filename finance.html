@@ -21,20 +21,37 @@
 
     <main>
         <h1>Финансовые показатели</h1>
-        <table id="pricetable">
-            <tr>
-              <th>Дата</th>
-              <th>Цена закрытия</th>
-            </tr>
-          </table>
-        <div id="minprice"></div>
-        <div id="maxprice"></div>
-        <div id="S"></div>
-
-        <div class="trading">
-            <div style="font-size: 16px;">Общее число акций на апрель 2023</div>
-            <div class="tradingVolume">17 869 440  <span style="color:#3e3e3e; font-weight: normal; margin-left: 2px;">шт</span></div>
-        </div>
+          <div style="display: flex;">
+            <div>,fkkf</div>
+            <table id="pricetable">
+              <tr>
+                <th>Дата</th>
+                <th>Цена закрытия</th>
+              </tr>
+            </table>
+            <div>
+              <div class="trading">
+                <div>Минимальное значение:</div> 
+                <div id="minprice" class="tradingVolume"></div>
+              </div>
+              <div class="trading">
+                <div>Максимальное значение:</div>
+                <div id="maxprice" class="tradingVolume"></div>
+              </div>
+              <div class="trading">
+                <div>Среднеквадратическое отклонение:</div>
+                <div id="S" class="tradingVolume"></div>
+              </div>
+              <div class="trading">
+                <div>Общее число акций на апрель 2023:</div>
+                <div class="tradingVolume">17 869 440  <span style="color:#3e3e3e; font-weight: normal; margin-left: 2px;">шт</span></div>
+              </div>
+              <div class="trading">
+                <div>Капитализация:</div>
+                <div class="tradingVolume">4 762 205 760 <span style="color:#3e3e3e; font-weight: normal; margin-left: 2px;">₽</span></div>
+              </div>
+            </div>
+          </div>
     </main>
 
     <footer> 
@@ -66,8 +83,8 @@
           let minDiv = document.getElementById('minprice');
           let maxDiv = document.getElementById('maxprice');
           let sDiv = document.getElementById('S');
-          minDiv.innerHTML = (`Минимальная цена: ${Math.min(...value)}`);
-          maxDiv.innerHTML = (`Максимальная цена: ${Math.max(...value)}`);
+          minDiv.innerHTML = (Math.min(...value));
+          maxDiv.innerHTML = (Math.max(...value));
     
           let summ = 0;
           for (let i = 0; i < value.length; i++) {
@@ -82,7 +99,7 @@
     
           let S = Math.round((Math.sqrt((xiE2) / value.length)) * 1000) / 1000;
     
-          sDiv.innerHTML = (`Среднеквадратическое отклонение: ${S}`);
+          sDiv.innerHTML = (S);
         } 
     
         tableFilling();

@@ -122,11 +122,11 @@ tr td:last-child {
     padding-bottom: 25px;
     padding-right: 24px;
     padding-left: 24px;
-    margin-right: 16px;
+    margin-left: 45px;
+    margin-bottom: 16px;
     background-color: #13a43830;
     border: 1px solid #ebebeb;
     border-radius: 8px;
-    width: 32%;
     
 }
 .tradingVolume {
