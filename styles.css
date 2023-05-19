@@ -81,7 +81,7 @@ table {
     border-spacing: 0;
     text-align: center;
     border: 1px solid #EDEDED;
-    width: 50%;
+    width: 100%;
 
 }
 th {
@@ -118,7 +118,7 @@ tr td:last-child {
     border-right: none;
 }
 .trading {
-    padding-top: 20px;
+    padding-top: 25px;
     padding-bottom: 25px;
     padding-right: 24px;
     padding-left: 24px;
